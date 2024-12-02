@@ -4,11 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novogodišnji Human Desgin HD Chart - Test</title>
+    <title>Novogodišnji Human Desgin HD Chart</title>
+    <style>
+        /* CSS za Design/Personality polja (ako se radi ona Tooltip varijanta) */
+        .hdapi-design .hdapi-item,
+        .hdapi-personality .hdapi-item {
+            transition: 0.2s;
+        }
+
+        .hdapi-design .hdapi-item:hover,
+        .hdapi-personality .hdapi-item:hover {
+            transform: scale(1.12, 1.12);
+            box-shadow: 3px 2px 10px black;
+        }
+    </style>
 </head>
 
 <body>
-    <script src="https://embed.bodygraphchart.com/v1/18201/js?token=9f574598-664f-4b53-a147-8754aeaf811a" defer></script>
+    <script src="https://embed.bodygraphchart.com/v1/18201/js?token=9f574598-664f-4b53-a147-8754aeaf811a"
+        defer></script>
+    <script>
+        //dodatne izmene/funkcionalnost za Chart Result
+
+        const downSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"/><path d="M13 13.586V8h-2v5.586l-2.293-2.293-1.414 1.414L12 17.414l4.707-4.707-1.414-1.414L13 13.586z"/></svg>';
+        const newSvg = '<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 16 16" style="margin-right: 5px;"><path d="M8 0a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm0 15a7 7 0 1 1 7-7 7 7 0 0 1-7 7z"/><path d="M9 4H7v3H4v2h3v3h2V9h3V7H9V4z"/></svg>';
+        const description = 'Zavirite u svoj jedinstveni Human Design!<br><br>Besplatno preuzmite svoj lični izveštaj';
+
+        function addEventToSubmit() {
+            let timer = setInterval(findDownBtn, 1500);
+
+            function findDownBtn() {
+                let submit = document.getElementById("hdapi-submit");
+                if (submit !== null) {
+                    clearInterval(timer);
+                    submit.addEventListener('click', addDownSvg);
+                    return;
+                }
+            }
+        }
+
+        function addDownSvg() {
+            let timer = setInterval(findDownBtn, 1500);
+
+            function findDownBtn() {
+                let downBtn = document.getElementById("hdapi-download-pdf-report");
+                if (downBtn !== null) {
+                    clearInterval(timer);
+                    downBtn.innerHTML = downSvg + downBtn.innerHTML;
+                    downBtn.style.fontWeight = "bold";
+
+
+                    let newBtn = document.getElementById("hdapi-new-chart");
+                    newBtn.innerHTML = newSvg + newBtn.innerHTML;
+                    newBtn.style.fontWeight = "bold";
+                    newBtn.focus();
+                    newBtn.blur();
+
+                    document.querySelector(".hdapi-report-description").innerHTML = description;
+                    return;
+                }
+                console.log("Didn't find download - " + Date.now());
+            }
+        }
+
+        if (window.location.href.indexOf("#chart") !== -1)
+            addDownSvg();
+        else
+            addEventToSubmit();
+    </script>
 </body>
 
 </html>
