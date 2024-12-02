@@ -1,0 +1,77 @@
+#hdapi-download-pdf-report, #hdapi-new-chart {
+    background-color: rgb(48, 123, 2);
+    border: 0;
+    border-radius: 4px;
+    font-size: 15px;
+    display: inline-block !important;
+    vertical-align: middle;
+    line-height: 22px;
+    padding: 10px 17px !important;
+    cursor: pointer;
+    background: #358c00;
+    color: #fff !important;
+    text-decoration: none;
+    margin-bottom: 0px !important;
+}
+
+#hdapi-download-pdf-report>svg {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#hdapi-new-chart>svg {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#hdapi-download-pdf-report:hover,
+#hdapi-new-chart:hover {
+    background-color: #307b02;
+}
+
+.hdapi-personality .hdapi-item {
+    color: white !important;
+}
+
+.hdapi-personality .hdapi-item svg,
+.hdapi-icon-Moon,
+.hdapi-personality>.hdapi-item>.hdapi-fixing-state>svg {
+    fill: white !important;
+    color: white !important;
+}
+
+.hdapi-cta {
+    margin-bottom: 1.2em;
+}
+.hdapi-report-box {
+	padding: 15px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	margin: 10px;
+	font-size: 16px;
+	max-width: 320px;
+	width: 320px;
+	float: left;
+	background: #fbfbfb;
+	transition: 0.97s;
+}
+.hdapi-report-box:hover {
+	box-shadow: 5px 8px 12px #2b2929;
+	transform: scale(1.02, 1.02);
+}
+
+.hdapi-report-description {
+	padding: 0;
+}
+.hdapi-report-box h3 {
+	margin: 0;
+	padding: 0 0 4px 0;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.hdapi-heading{
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
