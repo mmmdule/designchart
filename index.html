@@ -57,6 +57,8 @@
             event.preventDefault();
             let txtIn = document.querySelector("input");
             txtIn.value = txtIn.value.trim();
+            if(txtIn.value.indexOf("#chart") === -1)
+                return;
             window.location.href = "https://mmmdule.github.io/designchart/test" + "#chart" + txtIn.value.split("#chart")[1];
         })
     </script>
