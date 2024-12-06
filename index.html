@@ -4,11 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novogodišnji Human Desgin HD Chart</title>
+    <title></title>
+    <link rel="stylesheet" href="fa.css">
+    <link rel="stylesheet" href="fa.min.css">
+    <style>
+        input[type=text] {
+            width: 93%;
+            padding: 11px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            vertical-align: bottom
+        }
+
+        button {
+            width: 3.5%;
+            background-color: #2e29b2;
+            display: inline-block;
+            color: white;
+            padding: 20px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #433fb3;
+        }
+
+        div {
+            width: 70%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 10rem;
+        }
+    </style>
 </head>
 
 <body>
-    <script src="https://embed.bodygraphchart.com/v1/18147/js?token=9f574598-664f-4b53-a147-8754aeaf811a" defer></script>
+    <div>
+        <input type="text" name="" id="">
+        <button> </button>
+    </div>
+    <script>
+        let btn = document.querySelector("button");
+        btn.addEventListener("click", (event)=>{
+            event.preventDefault();
+            let txtIn = document.querySelector("input");
+            txtIn.value = txtIn.value.trim();
+            window.location.href = "https://mmmdule.github.io/designchart/test" + "#chart" + txtIn.value.split("#chart")[1];
+        })
+    </script>
 </body>
 
 </html>
