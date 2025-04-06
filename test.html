@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novogodišnji Human Desgin HD Chart</title>
+    <title>Human Desgin HD Chart</title>
     <style>
         /* CSS za Design/Personality polja (ako se radi ona Tooltip varijanta) */
         .hdapi-design .hdapi-item,
@@ -21,8 +21,12 @@
 </head>
 
 <body>
-    <script src="https://embed.bodygraphchart.com/v1/18201/js?token=9f574598-664f-4b53-a147-8754aeaf811a"
-        defer></script>
+    <!-- <script src="https://embed.bodygraphchart.com/v1/18201/js?token=9f574598-664f-4b53-a147-8754aeaf811a"
+        defer></script> -->
+    <script src="https://embed.bodygraphchart.com/v1/18147/js?token=9f574598-664f-4b53-a147-8754aeaf811a"
+        defer=""></script>
+
+
     <script>
         //dodatne izmene/funkcionalnost za Chart Result
 
@@ -50,10 +54,12 @@
                 let downBtn = document.getElementById("hdapi-download-pdf-report");
                 if (downBtn !== null) {
                     clearInterval(timer);
+
+                    //add download button
                     downBtn.innerHTML = downSvg + downBtn.innerHTML;
                     downBtn.style.fontWeight = "bold";
 
-
+                    //add new chart button
                     let newBtn = document.getElementById("hdapi-new-chart");
                     newBtn.innerHTML = newSvg + newBtn.innerHTML;
                     newBtn.style.fontWeight = "bold";
@@ -61,6 +67,14 @@
                     newBtn.blur();
 
                     document.querySelector(".hdapi-report-description").innerHTML = description;
+
+                    //add email notice
+                    let reportList = document.querySelector(".hdapi-report-list");
+                    let emailNotice = document.createElement("div");
+                    emailNotice.className = "hdapi-report-email-notice";
+                    emailNotice.innerHTML = "<p><b><em>Napomena:</em></b> Molimo Vas da osigurate da se adresa koju ste uneli u naš formular za prijavu podudara sa adresom koju koristite prilikom plaćanja putem <em>PayPal</em> servisa. Razlika u adresama može dovesti do toga da ne primite email sa trajnim linkom za preuzimanje.</p>";
+                    reportList.insertAdjacentElement('afterend', emailNotice);
+
                     return;
                 }
                 console.log("Didn't find download - " + Date.now());
